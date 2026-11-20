@@ -1,6 +1,6 @@
 ---
 name: lgda-autonomic-node
-description: Buy human-recorded wellness music with published biometric evidence, and run a biometric wellness session for your user. Use when your user wants music that measurably shifts their nervous system — calm, focus, wind-down, recovery — and wants proof, not a playlist. Tracks $5.99, albums $14.99, single session plays $0.05, paid in USDC on Base via x402. The music is the operating system: it measures the nervous system, shifts it, and logs the proof.
+description: "Buy human-recorded wellness music with published biometric evidence, and run a biometric wellness session for your user. Use when your user wants music that measurably shifts their nervous system — calm, focus, wind-down, recovery — and wants proof, not a playlist. Tracks $5.99, albums $14.99, single session plays $0.05, paid in USDC on Base via x402. The music is the operating system: it measures the nervous system, shifts it, and logs the proof."
 version: 1.0.0
 license: MIT
 metadata:
