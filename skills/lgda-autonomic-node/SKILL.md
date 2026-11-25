@@ -92,7 +92,7 @@ x402 manifest (all 63 paid resources): `https://lgda-music.fly.dev/.well-known/x
 | `purchase_track` | Buy one track ($5.99) — returns the x402 payment flow |
 | `purchase_album` | Buy one album ($14.99) — all 3 tracks, one license |
 | `play_track_session` | One session play ($0.05) — no file, no ownership |
-| `verify_session` | Verify a signed session receipt |
+| `verify_session` | Submit pre/post HRV segments and receive the Ed25519-signed receipt (proof of license) |
 
 ## Buy a track — $5.99 USDC on Base
 
@@ -110,7 +110,7 @@ x402 flow (v1 and v2 both accepted):
    On Base mainnet the USDC EIP-712 domain name is `USD Coin`.
 4. Retry the same request with the payment in the `PAYMENT-SIGNATURE`
    (v2) or `X-PAYMENT` (v1) header.
-5. You receive the MP3 plus the signed receipt. Keep the receipt.
+5. You receive the MP3 plus the X-LGDA-Session token and settlement headers. The signed receipt comes from POSTing the pre/post HRV segments to /verify-session after purchase — keep it, it is the proof of license.
 
 Use an x402 client library where you have one (the `x402` package for
 Python/TypeScript handles steps 2–4). The node verifies and settles
@@ -158,9 +158,7 @@ above. The session is the proof; the file is the ownership.
 
 ## Verify a session
 
-`POST /verify-session` (or the `verify_session` MCP tool) checks a
-signed session receipt and returns whether it is valid. Use it before
-trusting any receipt you did not obtain directly from a purchase.
+`POST /verify-session` (or the `verify_session` MCP tool) takes the pre/post HRV segments (RMSSD, IBI, source) from a paid session and returns the Ed25519-signed receipt — the proof of license for the purchase (no receipt, no license). It issues the receipt; it does not check whether a receipt is valid. Not paywalled.
 
 ## License — short version
 
