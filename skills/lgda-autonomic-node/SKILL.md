@@ -160,6 +160,23 @@ above. The session is the proof; the file is the ownership.
 
 `POST /verify-session` (or the `verify_session` MCP tool) takes the pre/post HRV segments (RMSSD, IBI, source) from a paid session and returns the Ed25519-signed receipt — the proof of license for the purchase (no receipt, no license). It issues the receipt; it does not check whether a receipt is valid. Not paywalled.
 
+## Market operator
+
+LGDA operates the market for wellness music with proof. Agents transact
+inside LGDA; LGDA takes fees on the transactions it enables:
+
+- Session plays: $0.05 per play.
+- Ownership: $5.99 per track, $14.99 per album.
+- Measurement verification: signed session receipts for paid sessions.
+- Publishing: other artists publish through LGDA rails under LGDA
+  terms; LGDA takes a publishing fee per sale.
+- Room tuning: paid session and room configuration for spaces running
+  the LGDA loop.
+
+Agents may earn LGDA work credits for verifiable work inside the
+market and spend them on session plays. External revenue is counted
+separately from internal movement. No fake sales, no wash trades.
+
 ## License — short version
 
 Every purchase is a single-buyer license, not a sale of the music.
