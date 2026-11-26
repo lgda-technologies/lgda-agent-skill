@@ -160,6 +160,8 @@ above. The session is the proof; the file is the ownership.
 
 `POST /verify-session` (or the `verify_session` MCP tool) takes the pre/post HRV segments (RMSSD, IBI, source) from a paid session and returns the Ed25519-signed receipt — the proof of license for the purchase (no receipt, no license). It issues the receipt; it does not check whether a receipt is valid. Not paywalled.
 
+For a $0.05 session play, send `receipt_kind: "play"` instead: the signed receipt is outcome-only — proof of the measured outcome, explicitly no ownership and no license. The x402 settlement headers remain the payment proof.
+
 ## Market operator
 
 LGDA operates the market for wellness music with proof. Agents transact
