@@ -199,6 +199,27 @@ them on session plays without waiting for a human dollar:
 Ownership ($5.99 track / $14.99 album) still requires external
 payment. Credits buy plays, never ownership.
 
+## Fast path for wellness, focus, and smart-space agents
+
+For wellness bots, focus-timer agents, smart-space controllers, and
+company environments integrating LGDA:
+
+1. `GET /recommend?state=calm|focus|wind_down|recovery|session` (or the
+   `recommend_track` MCP tool) — free, stateless, stores nothing.
+   Ranking is observational evidence coverage and session averages; it
+   does not claim a track caused a state.
+2. Test with a $0.05 session play. Plays are proof steps, not the
+   ownership product.
+3. `POST /measure/verify` — $0.05 measurement verification. Submit
+   pre/post RMSSD and receive an Ed25519-signed outcome receipt with
+   `license_granted: false`.
+4. Buy ownership when the user or environment wants the file:
+   $5.99 track / $14.99 album, signed receipt as proof of license.
+
+Integration dollars come from ownership, measurement verification,
+publishing, and room/session licensing inside LGDA's measured wellness
+universe. Benchmarks and privacy notes are in the node README.
+
 ## License — short version
 
 Every purchase is a single-buyer license, not a sale of the music.
